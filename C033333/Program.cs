@@ -10,6 +10,8 @@ namespace C033333
     {
         static void Main(string[] args)
         {
+            Countryside blue = new Countryside();
+            blue.Launch();
         }
     }
 
@@ -29,9 +31,12 @@ namespace C033333
         Village Ajax = new Village();
         Village First;
         Village Last;
- 
+        Village Temp;
+       
         public void Launch()
         {
+            First = Maple;
+            Last = Ajax;
             Maple.VillageName = "Maple";
             Maple.nextVillage = Toronto;
             Maple.previousVillage = null;
@@ -41,6 +46,20 @@ namespace C033333
             Ajax.VillageName = "Ajax";
             Ajax.nextVillage = null; 
             Ajax.nextVillage = Toronto;
+
+            Console.WriteLine(this.displayMap());
+        }
+
+        public string displayMap()
+        {
+            string listOfCities = "";
+            // we need to print ALL the cities in our Area
+            
+            listOfCities = listOfCities + First.VillageName + " ----- " ;
+            Temp = First.nextVillage;
+            listOfCities = listOfCities + Temp.VillageName+ " ----- ";
+
+            return listOfCities;
         }
     }
 }
